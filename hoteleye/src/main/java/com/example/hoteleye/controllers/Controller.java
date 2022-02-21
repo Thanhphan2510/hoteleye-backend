@@ -3,10 +3,12 @@ package com.example.hoteleye.controllers;
 import com.example.hoteleye.models.Account;
 import com.example.hoteleye.models.Hotel;
 import com.example.hoteleye.models.Room;
+import com.example.hoteleye.models.RoomType;
 import com.example.hoteleye.myutils.AccountException;
 import com.example.hoteleye.services.AccountService;
 import com.example.hoteleye.services.HotelService;
 import com.example.hoteleye.services.RoomService;
+import com.example.hoteleye.services.RoomTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +20,8 @@ public class Controller
 {
     @Autowired
     private AccountService accountService;
-
+    @Autowired
+    private RoomTypeService roomTypeService;
     @Autowired
     private HotelService hotelService;
     @Autowired
@@ -85,5 +88,10 @@ public class Controller
         return (List<Room>) roomService.findAll();
     }
 
+    @RequestMapping(value = "/roomtypes", method = RequestMethod.GET)
+    public List<RoomType> getAllRoomTypes() {
+
+        return (List<RoomType>) roomTypeService.findAll();
+    }
 
 }

@@ -11,6 +11,6 @@ public interface RoomRepository extends Repository<Room, Long> {
     @Query(value = "SELECT * from rooms inner join hotels inner join roomtypes", nativeQuery = true)
     List<Room> findAll();
 
-//    void save(Room room);
+    void save(Room room);
 
 }
